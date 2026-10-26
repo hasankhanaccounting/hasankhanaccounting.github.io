@@ -1,103 +1,67 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Hasan Khan</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="assets/images/Sig.png">
-
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-
-
-
-        <!--<link rel="stylesheet" href="assets/css/materialize.css">-->
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/fonticons.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-        <!-- For navmenu css -->
-        <link rel="stylesheet" href="assets/css/navmenu.css" />
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
-
-        <!--Theme Colors css-->
-        <link rel="stylesheet" href="assets/css/white.css">
-
-
-
-        <!--Old browser  JS-->
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    </head>
-
-    <body data-spy="scroll" data-target="#scrollspy">
-
-        </script>
-        <script src="assets/js/materialize.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
-
-
-         <div class="backhome">
-                <a href="index.html">Back to homepage.</a>
-         </div>
-         <div class="hero-section">
-            <div class="hero-section-text">
-              <h5>Find out what I've accomplished over the years</h5>
-              <h1>A Little Something More</h1>
-            </div>
-          </div>
-         <div class="resume">
-             <img src="assets/images/res.png" alt="">
-         </div>
-
-    </body>
-        <!-- Contact Section -->
-        <footer id="footer" class="footer">                
-            <div class="container">
-                <div class="row">
-                    <div class="main_footer">
-                        <div class="col-sm-2">
-                            <div class="footer_logo">
-                                <a href="#home"><img src="assets/images/Sig.png" alt="" /></a>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-8">
-                            <div class="copyright_text margin-top-20">
-                                <p class=" wow fadeInRight animated" data-wow-duration="1s">@2018 
-                                     <a href="#home">Hasan Khan.</a>All Rights Reserved. For the love.</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="footer_socail text-right  margin-top-20">
-                                <ul class="list-inline">
-                                    <li><a href="https://www.facebook.com/hasan.khan1101" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="https://twitter.com/K1ng_hasan" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i class="fa fa-behance"></i></a></li>
-                                    <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End of row -->
-            </div><!-- End of container-fluid -->
-        </footer><!-- End of Footer Section -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a22">
+  <meta name="description" content="Hasan Khan’s résumé.">
+  <title>Résumé — Hasan Khan</title>
+  <link rel="icon" type="image/png" href="assets/images/Sig.png">
+  <style>
+    :root { --ink:#14212b; --paper:#f5f4ef; --green:#b8e16b; --dark:#101a22; --muted:#aebac0; --serif:Georgia,"Times New Roman",serif; --sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.6; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--green); outline-offset:4px; }
+    .wrap { width:min(1000px,calc(100% - 40px)); margin:0 auto; }
+    header { background:var(--dark); color:#f7f7f1; }
+    .nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:750; }
+    .brand img { width:35px; height:35px; object-fit:contain; border-radius:50%; background:#fff; }
+    .back { color:#d4dbe0; font-size:.88rem; text-decoration:none; }
+    .back:hover { color:var(--green); }
+    main { padding:clamp(56px,9vw,100px) 0 90px; }
+    .intro { display:flex; align-items:end; justify-content:space-between; gap:25px; margin-bottom:34px; }
+    .eyebrow { margin:0 0 11px; color:#57732e; font-size:.75rem; font-weight:750; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { margin:0; font:500 clamp(3rem,7vw,6.5rem)/.95 var(--serif); letter-spacing:-.055em; }
+    .intro p:not(.eyebrow) { max-width:300px; margin:0; color:#68747b; font-size:.95rem; }
+    .resume-frame { padding:clamp(10px,2vw,22px); border:1px solid #dfe3df; border-radius:10px; background:#fffefa; box-shadow:0 22px 70px rgba(20,33,43,.09); }
+    .resume-frame img { width:100%; height:auto; }
+    .open-resume { display:inline-flex; margin:23px 0 0; color:#456420; font-size:.88rem; font-weight:750; text-decoration:none; }
+    .open-resume:hover { text-decoration:underline; }
+    footer { padding:22px 0; color:#aab5bb; background:#0b1319; font-size:.78rem; }
+    .footer-row { display:flex; justify-content:space-between; gap:20px; }
+    footer a { color:#e7ebe6; text-decoration:none; }
+    @media(max-width:600px) { .wrap { width:calc(100% - 30px); } .nav { min-height:68px; } .intro { align-items:flex-start; flex-direction:column; } .intro p:not(.eyebrow) { max-width:450px; } .footer-row { flex-direction:column; gap:6px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Hasan Khan, home">
+        <img src="assets/images/Sig.png" alt="">
+        <span>Hasan Khan</span>
+      </a>
+      <a class="back" href="index.html">← Back to home</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="intro">
+      <div>
+        <p class="eyebrow">Background & experience</p>
+        <h1>My résumé</h1>
+      </div>
+      <p>A snapshot of what I’ve accomplished and learned over the years.</p>
+    </div>
+    <div class="resume-frame">
+      <a href="assets/images/res.png" target="_blank" rel="noopener noreferrer" aria-label="Open the résumé image in a new tab">
+        <img src="assets/images/res.png" alt="Hasan Khan’s résumé" fetchpriority="high">
+      </a>
+    </div>
+    <a class="open-resume" href="assets/images/res.png" target="_blank" rel="noopener noreferrer">Open résumé image in a new tab ↗</a>
+  </main>
+  <footer><div class="wrap footer-row"><span>© 2026 Hasan Khan</span><a href="index.html">Back to home ↑</a></div></footer>
+</body>
 </html>
