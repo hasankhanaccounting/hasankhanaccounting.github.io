@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title"><title id="title">Hasan Khan — interwoven HK monogram</title><rect x="2" y="2" width="96" height="96" rx="26" fill="#101a22"/><path d="M25 25v48m25-48v48M25 49h25m0 0 25-24M50 49l27 24" fill="none" stroke="#d4bd87" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/><path d="M20 82h59" stroke="#d4bd87" stroke-width="2" opacity=".55"/><path d="M77 19h5v5" fill="none" stroke="#f5f4ef" stroke-width="2.5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+<title id="title">Hasan Khan — HK flight monogram</title>
+<desc id="desc">A gold H and K share a central stem. A curved flight path forms their connecting stroke and rises toward a small airplane.</desc>
+<rect width="120" height="120" rx="30" fill="#101a22"/>
+<g fill="#dcc69a">
+<path d="M24 25h23v3h-6v57h6v3H24v-3h6V28h-6z"/>
+<path d="M57 25h23v3h-6v57h6v3H57v-3h6V28h-6z"/>
+<path d="M72 57c5 12 12 21 22 28l5 3H80v-3h3L67 65z"/>
+</g>
+<path d="M37 96C8 88 20 69 47 60c18-6 37-14 47-23" fill="none" stroke="#101a22" stroke-width="12"/>
+<path d="M37 96C12 87 23 72 48 64c20-7 35-15 46-27" fill="none" stroke="#dcc69a" stroke-width="6.5" stroke-linecap="round"/>
+<path d="M38 90c-12-7-6-16 9-22" fill="none" stroke="#dcc69a" stroke-width="1.7" stroke-linecap="round" opacity=".65"/>
+<path d="M0-13c1.2 0 1.9 1.7 1.9 3.5v5.2l9 6.2v3L2 1v7l3.4 2.7v2L0 11l-5.4 1.7v-2L-2 8V1l-8.9 3.9v-3l9-6.2v-5.2C-1.9-11.3-1.2-13 0-13z" fill="#f0dfb9" transform="translate(97 31) rotate(43)"/>
+</svg>
