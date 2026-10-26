@@ -15,7 +15,7 @@ function doPost(e) {
   const recipient = PropertiesService.getScriptProperties().getProperty("CONTACT_RECIPIENT");
 
   // Quietly discard bot submissions that fill the hidden honeypot.
-  if (String(params.website || "").trim()) {
+  if (String(params.contact_check || "").trim()) {
     return resultPage("Message received", "Thanks for reaching out.", true);
   }
 
