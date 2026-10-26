@@ -1,486 +1,352 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Hasan Khan</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="assets/images/logo.png">
-        <link rel="icon" type="image/png" href="assets/images/Sig.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a22">
+  <meta name="description" content="Hasan Khan — web developer, designer, and lifelong learner in New York City.">
+  <title>Hasan Khan — Personal Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/images/Sig.png">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #14212b;
+      --muted: #68747b;
+      --paper: #f5f4ef;
+      --white: #fffefa;
+      --line: #dfe3df;
+      --green: #b8e16b;
+      --blue: #8bc9db;
+      --dark: #101a22;
+      --dark-soft: #182630;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --max: 1160px;
+    }
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { margin: 0 0 14px; color: #57732e; font-size: .76rem; font-weight: 750; letter-spacing: .16em; text-transform: uppercase; }
+    .section { padding: 108px 0; }
+    .section-heading { max-width: 650px; margin-bottom: 42px; }
+    .section-heading h2 { margin: 0; font: 500 clamp(2.4rem, 5vw, 4.4rem)/1.02 var(--serif); letter-spacing: -.045em; }
+    .section-heading p:not(.eyebrow) { max-width: 540px; margin: 17px 0 0; color: var(--muted); font-size: 1.02rem; }
 
+    .site-header { position: sticky; z-index: 10; top: 0; background: rgba(16, 26, 34, .96); color: #f7f7f1; backdrop-filter: blur(14px); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-size: .98rem; font-weight: 750; letter-spacing: -.02em; }
+    .brand img { width: 35px; height: 35px; object-fit: contain; border-radius: 50%; background: #fff; }
+    .nav-links { display: flex; align-items: center; gap: clamp(16px, 3vw, 34px); }
+    .nav-links a { color: #d4dbe0; text-decoration: none; font-size: .83rem; font-weight: 600; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links .nav-cta { padding: 10px 15px; color: var(--dark); background: var(--green); border-radius: 999px; }
+    .nav-links .nav-cta:hover { color: var(--dark); background: #d2f19b; }
+    .nav-menu { display: none; }
 
+    .hero { position: relative; overflow: hidden; padding: clamp(82px, 12vw, 150px) 0 74px; color: #f7f7f1; background: var(--dark); }
+    .hero::before, .hero::after { position: absolute; content: ""; pointer-events: none; }
+    .hero::before { width: 480px; height: 480px; top: -250px; right: -110px; border: 1px solid rgba(139, 201, 219, .2); border-radius: 50%; box-shadow: 0 0 0 46px rgba(139, 201, 219, .035), 0 0 0 92px rgba(139, 201, 219, .025); }
+    .hero::after { width: 260px; height: 260px; bottom: -180px; left: 48%; background: rgba(184, 225, 107, .08); filter: blur(12px); border-radius: 50%; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); align-items: end; gap: 70px; }
+    .hero .eyebrow { color: var(--green); }
+    .hero h1 { max-width: 790px; margin: 0; font: 500 clamp(3.8rem, 9.5vw, 8.4rem)/.92 var(--serif); letter-spacing: -.065em; }
+    .hero h1 span { color: var(--green); font-style: italic; }
+    .hero-copy { max-width: 385px; margin: 25px 0 0; color: #c7d0d5; font-size: clamp(1.03rem, 1.5vw, 1.2rem); }
+    .hero-side { display: flex; flex-direction: column; align-items: flex-start; gap: 27px; padding: 0 0 8px 28px; border-left: 1px solid rgba(255,255,255,.2); }
+    .hero-side p { max-width: 320px; margin: 0; color: #b9c4cb; font-size: .96rem; }
+    .location { display: flex; align-items: center; gap: 10px; color: #e5e9e6; font-size: .86rem; font-weight: 650; }
+    .location-mark { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(184,225,107,.12); }
+    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 19px; border: 1px solid transparent; border-radius: 999px; text-decoration: none; font-size: .86rem; font-weight: 750; transition: transform .2s ease, background .2s ease; }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { color: var(--dark); background: var(--green); }
+    .button-primary:hover { background: #d2f19b; }
+    .button-outline { color: #f5f6f1; border-color: rgba(255,255,255,.3); }
+    .button-outline:hover { background: rgba(255,255,255,.08); }
+    .hero-bottom { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 94px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); color: #aab5bb; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-bottom a { color: #e8ece8; text-decoration: none; letter-spacing: 0; text-transform: none; }
 
-        <!--<link rel="stylesheet" href="assets/css/materialize.css">-->
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/fonticons.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(40px, 8vw, 110px); }
+    .about-image { position: relative; }
+    .about-image::after { position: absolute; z-index: -1; content: ""; inset: 20px -20px -20px 20px; border: 1px solid #b6c8a2; border-radius: 6px; }
+    .about-image img { width: 100%; max-height: 520px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 5px; background: #dce0d7; }
+    .about-copy h2 { margin: 0; font: 500 clamp(2.5rem, 5vw, 4.7rem)/.98 var(--serif); letter-spacing: -.045em; }
+    .about-copy > p:not(.eyebrow) { max-width: 510px; margin: 22px 0; color: var(--muted); font-size: 1.06rem; }
+    .about-note { margin-top: 31px; padding: 19px 0 0; border-top: 1px solid var(--line); color: #59655f; font: italic 1.1rem/1.5 var(--serif); }
+    .about-actions { margin-top: 30px; }
+    .button-dark { color: white; background: var(--dark); }
+    .button-dark:hover { background: #263944; }
 
-        <!-- For navmenu css -->
-        <link rel="stylesheet" href="assets/css/navmenu.css" />
+    .story { padding: 82px 0; color: #f7f7f1; background: var(--dark-soft); }
+    .story-grid { display: grid; grid-template-columns: .55fr 1.45fr; gap: 50px; align-items: start; }
+    .story-tag { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: .76rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .story-tag::before { width: 23px; height: 1px; background: var(--green); content: ""; }
+    .story h2 { max-width: 730px; margin: 0; font: 500 clamp(2.3rem, 4.5vw, 4.2rem)/1.04 var(--serif); letter-spacing: -.04em; }
+    .story p { max-width: 720px; margin: 20px 0 0; color: #c5cfd3; }
+    .story-link { display: inline-flex; margin-top: 24px; color: var(--green); font-size: .9rem; font-weight: 700; text-decoration: none; }
+    .story-link:hover { text-decoration: underline; }
 
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
+    .skills { background: #e9eee6; }
+    .skills-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 70px; }
+    .skills-intro .section-heading { margin-bottom: 0; }
+    .skills-intro .section-heading p:not(.eyebrow) { margin-top: 20px; }
+    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .skill-card { min-height: 177px; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; border: 1px solid #d5ddd2; border-radius: 7px; background: rgba(255,255,255,.55); transition: transform .2s ease, background .2s ease; }
+    .skill-card:hover { transform: translateY(-4px); background: var(--white); }
+    .skill-mark { color: #6f8e3c; font: 500 2.5rem/1 var(--serif); }
+    .skill-card h3 { margin: 22px 0 0; font: 600 1rem var(--sans); }
+    .skill-card p { margin: 4px 0 0; color: var(--muted); font-size: .79rem; }
 
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
+    .interests { background: var(--white); }
+    .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .interest-card { min-height: 225px; display: flex; flex-direction: column; justify-content: space-between; padding: 28px; border: 1px solid var(--line); border-radius: 8px; background: #fafaf6; }
+    .interest-number { color: #87977f; font: 500 1rem var(--serif); }
+    .interest-card h3 { margin: 45px 0 6px; font: 500 2rem/1.1 var(--serif); letter-spacing: -.025em; }
+    .interest-card p { margin: 0; color: var(--muted); font-size: .9rem; }
 
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
+    .gallery { background: var(--paper); }
+    .gallery-head { display: flex; align-items: end; justify-content: space-between; gap: 25px; }
+    .gallery-head .section-heading { margin-bottom: 36px; }
+    .text-link { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px; margin-bottom: 43px; color: #456420; font-size: .9rem; font-weight: 750; text-decoration: none; }
+    .text-link:hover { text-decoration: underline; }
+    .photo-grid { display: grid; grid-template-columns: 1.35fr .8fr .8fr; grid-auto-rows: 220px; gap: 14px; }
+    .photo { overflow: hidden; position: relative; border-radius: 7px; background: #dce1dc; }
+    .photo:first-child { grid-row: span 2; }
+    .photo:nth-child(4) { grid-column: span 2; }
+    .photo a, .photo img { width: 100%; height: 100%; }
+    .photo img { object-fit: cover; transition: transform .45s ease; }
+    .photo:hover img { transform: scale(1.035); }
+    .photo a:focus-visible { position: relative; z-index: 1; }
 
-        <!--Theme Colors css-->
-        <link rel="stylesheet" href="assets/css/white.css">
+    .contact { position: relative; overflow: hidden; color: #f7f7f1; background: var(--dark); }
+    .contact::after { position: absolute; width: 480px; height: 480px; right: -180px; bottom: -290px; border: 1px solid rgba(184,225,107,.2); border-radius: 50%; box-shadow: 0 0 0 42px rgba(184,225,107,.035), 0 0 0 84px rgba(184,225,107,.025); content: ""; }
+    .contact-grid { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+    .contact h2 { max-width: 650px; margin: 0; font: 500 clamp(3rem, 7vw, 6.4rem)/.94 var(--serif); letter-spacing: -.055em; }
+    .contact-copy { max-width: 330px; color: #c4ced2; }
+    .contact-copy p { margin: 0 0 22px; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .socials a { padding: 9px 13px; color: #eff1ec; border: 1px solid rgba(255,255,255,.25); border-radius: 99px; font-size: .82rem; text-decoration: none; }
+    .socials a:hover { color: var(--dark); background: var(--green); border-color: var(--green); }
+    .footer { padding: 23px 0; color: #aab5bb; background: #0b1319; font-size: .78rem; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer a { color: #e7ebe6; text-decoration: none; }
+    .back-top { color: var(--green) !important; }
 
+    @media (max-width: 800px) {
+      .wrap { width: min(var(--max), calc(100% - 36px)); }
+      .section { padding: 80px 0; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-side { max-width: 520px; }
+      .hero-bottom { margin-top: 65px; }
+      .about-grid, .skills-layout, .story-grid { grid-template-columns: 1fr; gap: 45px; }
+      .about-image { max-width: 470px; }
+      .skills-layout { gap: 32px; }
+      .interest-grid { grid-template-columns: 1fr 1fr; }
+      .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 190px; }
+      .photo:first-child { grid-row: span 2; }
+      .photo:nth-child(4) { grid-column: auto; }
+      .contact-grid { align-items: start; flex-direction: column; gap: 34px; }
+      .contact-copy { max-width: 500px; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: calc(100% - 32px); }
+      .nav { min-height: 68px; }
+      .nav-links { display: none; }
+      .nav-menu { position: relative; display: block; }
+      .nav-menu summary { list-style: none; cursor: pointer; padding: 10px 13px; color: var(--dark); background: var(--green); border-radius: 999px; font-size: .82rem; font-weight: 750; }
+      .nav-menu summary::-webkit-details-marker { display: none; }
+      .nav-menu[open] .nav-links { position: absolute; top: calc(100% + 12px); right: 0; min-width: 205px; display: flex; align-items: stretch; flex-direction: column; gap: 0; padding: 9px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: var(--dark-soft); box-shadow: 0 16px 36px rgba(0,0,0,.22); }
+      .nav-menu .nav-links a { padding: 11px 12px; border-radius: 7px; }
+      .nav-menu .nav-links a:hover { background: rgba(255,255,255,.07); }
+      .nav-menu .nav-links .nav-cta { margin-top: 4px; text-align: center; color: var(--dark); background: var(--green); }
+      .hero { padding: 75px 0 48px; }
+      .hero h1 { font-size: clamp(3.5rem, 16vw, 6rem); }
+      .hero-side { padding-left: 19px; }
+      .hero-bottom { align-items: flex-start; flex-direction: column; gap: 7px; margin-top: 53px; font-size: .68rem; }
+      .about-image { max-width: calc(100% - 12px); }
+      .about-image::after { inset: 12px -12px -12px 12px; }
+      .skill-grid { grid-template-columns: 1fr; }
+      .skill-card { min-height: 130px; }
+      .skill-card h3 { margin-top: 13px; }
+      .interest-grid { grid-template-columns: 1fr; }
+      .interest-card { min-height: 180px; }
+      .interest-card h3 { margin-top: 28px; }
+      .gallery-head { align-items: flex-start; flex-direction: column; gap: 0; }
+      .gallery-head .section-heading { margin-bottom: 12px; }
+      .text-link { margin: 0 0 28px; }
+      .photo-grid { grid-auto-rows: 145px; gap: 9px; }
+      .photo:first-child { grid-row: span 2; }
+      .footer-row { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Hasan Khan, home">
+        <img src="assets/images/Sig.png" alt="">
+        <span>Hasan Khan</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#story">All Star Code</a>
+        <a href="#skills">Skills</a>
+        <a href="#interests">Interests</a>
+        <a href="#gallery">Photos</a>
+        <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+      </nav>
+      <details class="nav-menu">
+        <summary>Menu <span aria-hidden="true">☰</span></summary>
+        <nav class="nav-links" aria-label="Mobile navigation">
+          <a href="#about">About</a>
+          <a href="#story">All Star Code</a>
+          <a href="#skills">Skills</a>
+          <a href="#interests">Interests</a>
+          <a href="#gallery">Photos</a>
+          <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+        </nav>
+      </details>
+    </div>
+  </header>
 
-
-        <!--Old browser  JS-->
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    </head>
-
-    <body data-spy="scroll" data-target="#scrollspy">
-
-
-
-
-
-        <div class="main_figur">
-
-            <div class="preloader">
-               <h2>Hasan Khan</h2>
-                <div class="loaded hexdots-loader">Connecting...</div>
-            </div><!-- End off Preloader -->
-
-
-
-            <div class="container">
-                <div class="div-menu">
-                    <header class="cd-header">
-                        <a href="#home" class="brand-logo text-left"><img src="assets/images/Sig.png" alt="" /></a>
-                        <a class="cd-menu-trigger" href="#main-nav"><span></span></a>
-                    </header>
-                </div>
-
-                <nav id="main-nav">
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Me</a></li>
-                        <li><a href="#service">My Skills</a></li>
-                        <li><a href="#team">My Intrests</a></li>
-                        <li><a href="#portfolio">My Feeds</a></li>
-                        <li><a href="#contactus">Contact</a></li>
-                    </ul>
-                    <a href="#" class="cd-close-menu">Close<span></span></a>
-                </nav>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Personal portfolio · New York City</p>
+            <h1>Hi, I’m<br><span>Hasan.</span></h1>
+            <p class="hero-copy">Web developer, designer, and curious person who likes learning by making things.</p>
+          </div>
+          <div class="hero-side">
+            <p>A little corner of the internet for the things I’m building, learning, and into.</p>
+            <div class="location"><span class="location-mark" aria-hidden="true"></span> Based in New York City</div>
+            <div class="button-row">
+              <a class="button button-primary" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
+              <a class="button button-outline" href="resume.html">View résumé <span aria-hidden="true">↗</span></a>
             </div>
-
-
-
-            <!-- Home Section -->
-            <section id="home" class="home">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 ">
-
-                            <div class="main_home text-center colorstext2 wow fadeInUp" data-wow-duration="700ms">
-                                <h1>"The future belongs to those who believe in thier dreams" - Eleanor Rosevelt</h1>
-                                <p>Web Developer | Designer</p>
-                                <marquee behavior="scroll" direction="left"><div class="demo" id="demo"></div></marquee>
-
-                                <p>📍 New York City</p>
-                                <a href="#about" class="btn btn-default waves-effect waves-blue">Learn more</a>
-                            </div>
-
-                        </div><!-- End of col-sm-12 -->
-                    </div><!-- End of row -->
-                </div><!-- End of Container -->
-
-                <div class="home_socail_bar">
-                    <ul>
-                        <li><a href="https://www.facebook.com/hasan.khan1101" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li2><a href="https://twitter.com/K1ng_hasan" target="_blank"><i class="fa fa-twitter"></i></a></li2>
-                    </ul>
-                </div>
-            </section><!-- End of Home Section -->
-
-
-            <!-- About Section -->
-            <section id="about" class="about colorsbg">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-12 ">
-                            <div class="main_about_area">
-                                <div class="head_title text-center">
-                                    <h2>About Me</h2>
-                                </div>
-                                <div class="about_content colorstext wow fadeInUp" data-wow-duration="700ms">
-                                    <div class="row">
-                                        <div class="col-sm-4 col-sm-offset-1">
-                                            <div class="single_abt single_about">
-                                                <h3>Descover who I am as a person.</h3>
-                                                <p class="text-uppercase colorstext">MY PASSIONS AND PERSONALITY</p>
-                                                <p>Believe you can and you’re halfway there." —Theodore Roosevelt</p>
-                                                <a href="resume.html" class="btn btn-primary waves-effect waves-teal  margin-top-40">My resume</a>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-6 col-sm-offset-1">
-                                            <div class="single_abt single_about_right_img">
-                                                <img src="assets/images/pic1.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div><!-- End of col-sm-12 -->
-                    </div><!-- End of row -->
-                </div><!-- End of Container-fluid -->
-
-            
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Home Section -->
-
-            <!-- Tobias Section -->
-            <section id="tobias" class="tobias">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_tobias_area sections">
-                            <div class="col-sm-6 wow fadeInLeft">
-                                <div class="single_abt single_tobias single_tobias_img">
-                                    <img src="https://lh6.googleusercontent.com/-0dRtsaq4xoyeQdsd1qTEdsfZh4_YbiX14V-f30s1VHgG9LSUhNDMxuyFaOJxwEzMq-QrP6EnkTk_gYMeiEM2-HCfIZTOL3SLwOFD2Ay4nsvG1fZxN8qiH7Cl_nKvLxk6KItP3pmK-c" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-sm-5 col-sm-offset-1 wow fadeInRight">
-                                <div class="single_abt single_tobias single_tobias_text">
-                                    <h4 class="text-uppercase">My inspiration</h4>
-                                    <div class="separator"></div>
-                                    <h3 class="text-uppercase">All Star Code.</h3>
-                                    <h5 class="text-uppercase">Alumni</h5>
-                                    <p>All Star Code is a nonprofit computer science education organization focused on motivated young men. All Star Code is developing a new generation of entrepreneurs who have the tools they need to succeed in technology.</p>
-
-                                    <a href="https://www.allstarcode.org/" target="_blank" class="btn btn-primary margin-top-40">Learn more</a>
-                                </div>
-                            </div>
-                        </div><!-- End of main Tobias area -->
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Tobias Section -->
-
-            <section id="service" class="service colorsbg">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_service_area text-center padding-bottom-80">
-                            <div class="head_title text-center wow fadeInUp">
-                                <h2>My Skills</h2>
-                                <p>Skill leavel: Intermediate</p>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <div class="single_service margin-top-40 wow fadeInLeft">
-                                    <div class="single_service_img">
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/600px-HTML5_Badge.svg.png" alt="" />
-                                    </div>
-                                    <div class="service_btn">
-                                        <a href="#service" class="btn btn-larg">HTML</a>
-                                    </div>
-                                </div>
-                            </div><!-- End of col-sm-4 -->
-
-                            <div class="col-sm-4">
-                                <div class="single_service margin-top-40 wow fadeInUp">
-                                    <div class="single_service_img">
-                                        <img src="https://www.grupohernandezalba.com/wp-content/uploads/2018/05/a32f83aa2c675058e4a05a0fd4da05eb.png" alt="" />
-                                    </div>
-                                    <div class="service_btn">
-                                        <a href="#service" class="btn btn-larg">CSS</a>
-                                    </div>
-                                </div>
-                            </div><!-- End of col-sm-4 -->
-
-                            <div class="col-sm-4">
-                                <div class="single_service margin-top-40 wow fadeInRight">
-                                    <div class="single_service_img">
-                                        <img src="https://searchlite.nl/wp-content/uploads/2016/08/JavaScript.png" alt="" />
-                                    </div>
-                                    <div class="service_btn">
-                                        <a href="#service" class="btn btn-larg">JavaScript</a>
-                                    </div>
-                                </div>
-                            </div><!-- End of col-sm-4 -->
-
-                            <div class="service_more_btn padding-top-80 text-center">
-                                <a href="space.html" class="btn btn-primary">See some of my projects.</a>
-                            </div>
-
-                        </div><!-- End of main service area -->
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Service Section -->
-
-
-            <!-- Team Section -->
-            <section id="team" class="team colorsbg">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_service_area main_team_area">
-                            <div class="head_title text-center wow fadeInUp">
-                                <h2>My Intrests</h2>
-                                <p>Activities | Hobbies | Dreams</p>
-                            </div>
-
-                            <div class="main_team_content wow fadeInUp">
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_team margin-top-40">
-                                        <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-shot-los-angeles-united-states-black-and-white-street-photography-giuseppe-milo.jpg" alt="" />
-                                        <div class="single_team_text">
-                                            <h4>Basketball</h4>
-                                            <p>Favortie sport growing up.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-4 -->
-
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_team margin-top-40">
-                                        <img src="https://alfahir.hu/sites/default/files/indexfoto/vallalkozo.jpg" alt="" />
-                                        <div class="single_team_text">
-                                            <h4>Business</h4>
-                                            <p>Hoping to start study in the feild of business.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-4 -->
-
-                                <div class="col-sm-4 col-xs-12">
-                                    <div class="single_team margin-top-40">
-                                        <img src="http://sgpc.blatalbajda.skola.edu.mt/wp-content/uploads/Coding.jpg" alt="" />
-                                        <div class="single_team_text">
-                                            <h4>Coding</h4>
-                                            <p>Learned it, so why not use it?</p>
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-4 -->
-                            </div>
-                        </div><!-- End of main Team area -->
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Team Section -->
-
-            <!-- Portfolio Section -->
-            <section id="portfolio" class="portfolio lightbg">
-                <div class="container">
-                    <div class="row">
-                        <div class="maint_portfolio_area">
-                            <div class="col-sm-12">
-                                <div class="head_title margin-top-80 wow fadeInUp">
-                                    <h2>My feeds</h2>
-                                    <p><a href="https://www.instagram.com/k1ng_k3an/?hl=en" target="_blank"> - Check out my Instagram.</a></p>
-                                </div>
-                            </div>
-
-                            <div class="main_portfolio_content sections wow fadeInUp">
-                                <div class="col-sm-8">
-                                    <div class="single_portfolio single_portfolio_1st">
-                                        <a href="assets/images/pic4.png" class="gallery-img"> <img src="assets/images/pic4.png" alt="" /></a>
-                                    </div>
-                                </div><!-- End of col-sm-8 -->
-                                <div class="col-sm-4">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="single_portfolio">
-                                                <a href="assets/images/pic3.png" class="gallery-img"> <img src="assets/images/pic3.png" alt="" /></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="single_portfolio margin-top-30">
-                                                <a href="assets/images/pic6.png" class="gallery-img"><img src="assets/images/pic6.png" alt="" /></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-4 -->
-
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="single_portfolio margin-top-30">
-                                                <a href="assets/images/pic10.png" class="gallery-img"><img src="assets/images/pic10.png" alt="" /></a>
-                                            </div>
-                                        </div><!-- End of col-sm-4 -->
-                                        <div class="col-sm-4">
-                                            <div class="single_portfolio margin-top-30">
-                                                <a href="assets/images/pic2.png" class="gallery-img" class="gallery-img"><img src="assets/images/pic2.png" class="gallery-img" alt="" /></a>
-                                            </div>
-                                        </div><!-- End of col-sm-4 -->
-                                        <div class="col-sm-4">
-                                            <div class="single_portfolio margin-top-30">
-                                                <a href="assets/images/pic5.png" class="gallery-img"><img src="assets/images/pic5.png" alt="" /></a>
-                                            </div>
-                                        </div><!-- End of col-sm-4 -->
-                                    </div>
-                                </div><!-- End of col-sm-12 -->
-
-                            </div>
-                        </div><!-- End of main Portfolio area -->
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Portfolio Section -->
-
-
-            <!-- Contact Section -->
-            <section id="contactus" class="contactus colorsbg">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_service_area main_contactus_area">
-                            <div class="head_title text-center wow fadeInUp">
-                                <h2>Contact me</h2>
-                                <p>Reach out and send me a friendly hello</p>
-                                <p>LET'S HAVE A CHAT!</p>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6 wow rollIn">
-                                    <div class="single_contant_left margin-top-60 margin-bottom-80">
-                                        <form action="#" id="formid">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="name" placeholder="Your Name..." required="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control" name="email" placeholder="Your Email Address" required="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="message" rows="8" placeholder="Your Message"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12 margin-bottom-30">
-                                                    <input type="submit" value="Send message" class="btn btn-primary btn-colors">
-                                                </div>
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div><!-- End of col-sm-6 -->
-<!-- 
-                                <div class="col-sm-6">
-                                    <div class="contact_us_right margin-top-60 margin-bottom-80 wow fadeInLeft">
-                                        <div class="single_contactus">
-                                            <div class="ourmap"></div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="single_map_bottom margin-top-30">
-                                                    <p class="text-uppercase">Corporate office</p>
-                                                    <span>Hourse: 14, Road: 17, Sector: 11</span>
-                                                    <span>Uttara Model Town, Dhaka-1230.</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="single_map_bottom text-right margin-top-30">
-                                                    <p class="text-uppercase">Corporate office</p>
-                                                    <span>147, Sokuntala, Jaflong</span>
-                                                    <span>NY-25800.</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> -->
-                                </div><!-- End of col-sm-6 -->
-
-                            </div>
-                        </div>
-                    </div><!-- End of row -->
-                </div><!-- End of container -->
-            </section><!-- End of Contactus Section -->
-
-
-            <!-- Contact Section -->
-            <footer id="footer" class="footer">                
-                <div class="container">
-                    <div class="row">
-                        <div class="main_footer">
-                            <div class="col-sm-2">
-                                <div class="footer_logo">
-                                    <a href="#home"><img src="assets/images/Sig.png" alt="" /></a>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-8">
-                                <div class="copyright_text margin-top-20">
-                                    <p class=" wow fadeInRight animated" data-wow-duration="1s">@2018 
-                                         <a href="#home">Hasan Khan.</a>All Rights Reserved. For the love.</p>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="footer_socail text-right  margin-top-20">
-                                    <ul class="list-inline">
-                                        <li><a href="https://www.facebook.com/hasan.khan1101" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="https://twitter.com/K1ng_hasan" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href=""><i class="fa fa-behance"></i></a></li>
-                                        <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End of row -->
-                </div><!-- End of container-fluid -->
-            </footer><!-- End of Footer Section -->
-
-            <div class="scrollup">
-                <a href="#home"><i class="fa fa-chevron-up"></i></a>
-            </div>
+          </div>
         </div>
+        <div class="hero-bottom">
+          <span>Technology · Design · Life</span>
+          <a href="space.html">A few things I’ve made <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-image">
+          <img src="assets/images/pic1.jpg" alt="A photo from Hasan’s personal collection">
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow">A little about me</p>
+          <h2>Curious by nature.<br>Always learning.</h2>
+          <p>I’m Hasan, based in New York City. I’m interested in web development, design, business, and the small details that make an experience feel right.</p>
+          <p>This site is where I share a bit of what I care about and what I’ve been working on.</p>
+          <div class="about-note">“Believe you can and you’re halfway there.”<br>— Theodore Roosevelt</div>
+          <div class="about-actions">
+            <a class="button button-dark" href="resume.html">Take a look at my résumé <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="story" id="story">
+      <div class="wrap story-grid">
+        <div><span class="story-tag">My inspiration</span></div>
+        <div>
+          <h2>Learning to build with All Star Code.</h2>
+          <p>I’m an All Star Code alumnus. The organization introduces young men to computer science and supports them as they explore technology and entrepreneurship.</p>
+          <a class="story-link" href="https://www.allstarcode.org/" target="_blank" rel="noopener noreferrer">Learn about All Star Code <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
 
-        <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <section class="section skills" id="skills">
+      <div class="wrap skills-layout">
+        <div class="skills-intro">
+          <div class="section-heading">
+            <p class="eyebrow">What I work with</p>
+            <h2>My skills</h2>
+            <p>Web development skills I’ve been building and putting to use.</p>
+          </div>
+          <a class="button button-dark" href="space.html">See my projects <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card"><span class="skill-mark" aria-hidden="true">&lt;/&gt;</span><div><h3>HTML</h3><p>Structure and content</p></div></article>
+          <article class="skill-card"><span class="skill-mark" aria-hidden="true">#</span><div><h3>CSS</h3><p>Style and layout</p></div></article>
+          <article class="skill-card"><span class="skill-mark" aria-hidden="true">JS</span><div><h3>JavaScript</h3><p>Interaction and logic</p></div></article>
+        </div>
+      </div>
+    </section>
 
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-        <script src="assets/js/jquery.easing.1.3.js"></script>
-        <script src="assets/js/jquery.magnific-popup.js"></script>
-        <script src="http://maps.google.com/maps/api/js"></script>
-        <script src="assets/js/gmaps.min.js"></script>
-        <script>
-            var map = new GMaps({
-                el: '.ourmap',
-                lat: -12.043333,
-                lng: -77.028333,
-                scrollwheel: false,
-                zoom: 15,
-                zoomControl: true,
-                panControl: false,
-                streetViewControl: true,
-                mapTypeControl: false,
-                overviewMapControl: false,
-                clickable: false,
-                styles: [{'stylers': [{'hue': '#000'}, {saturation: -200},
-                            {gamma: 0.50}]}]
-            });
-            map.addMarker({
-                lat: -12.043333,
-                lng: -77.028333
-            });
+    <section class="section interests" id="interests">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Beyond the screen</p>
+          <h2>Things I’m into</h2>
+          <p>A few interests that have stayed with me over the years.</p>
+        </div>
+        <div class="interest-grid">
+          <article class="interest-card"><span class="interest-number">01</span><div><h3>Basketball</h3><p>A favorite sport growing up.</p></div></article>
+          <article class="interest-card"><span class="interest-number">02</span><div><h3>Business</h3><p>Interested in the ideas and decisions behind how businesses grow.</p></div></article>
+          <article class="interest-card"><span class="interest-number">03</span><div><h3>Coding</h3><p>I learned to code—and I enjoy finding ways to keep using it.</p></div></article>
+        </div>
+      </div>
+    </section>
 
-        </script>
-        <script src="assets/js/materialize.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
+    <section class="section gallery" id="gallery">
+      <div class="wrap">
+        <div class="gallery-head">
+          <div class="section-heading">
+            <p class="eyebrow">A few snapshots</p>
+            <h2>Life lately</h2>
+          </div>
+          <a class="text-link" href="https://www.instagram.com/k1ng_k3an/?hl=en" target="_blank" rel="noopener noreferrer">Find me on Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="photo-grid">
+          <div class="photo"><a href="assets/images/pic4.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 1"><img src="assets/images/pic4.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+          <div class="photo"><a href="assets/images/pic3.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 2"><img src="assets/images/pic3.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+          <div class="photo"><a href="assets/images/pic6.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 3"><img src="assets/images/pic6.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+          <div class="photo"><a href="assets/images/pic10.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 4"><img src="assets/images/pic10.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+          <div class="photo"><a href="assets/images/pic2.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 5"><img src="assets/images/pic2.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+          <div class="photo"><a href="assets/images/pic5.png" target="_blank" rel="noopener noreferrer" aria-label="Open photo 6"><img src="assets/images/pic5.png" alt="Photo from Hasan’s gallery" loading="lazy"></a></div>
+        </div>
+      </div>
+    </section>
 
-    </body>
+    <section class="section contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h2>Have something<br>in mind?</h2>
+        </div>
+        <div class="contact-copy">
+          <p>Find me on social or check out what I’ve been making.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/k1ng_k3an/?hl=en" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://www.facebook.com/hasan.khan1101" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+            <a href="https://twitter.com/K1ng_hasan" target="_blank" rel="noopener noreferrer">Twitter ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-row">
+      <span>© 2026 <a href="#home">Hasan Khan</a></span>
+      <a class="back-top" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
 </html>
