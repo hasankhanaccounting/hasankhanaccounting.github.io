@@ -26,7 +26,7 @@ The site form will post these fields to the deployment URL:
 - `name`
 - `email`
 - `message`
-- `website` — hidden honeypot; visitors leave it blank
+- `contact_check` — hidden honeypot; visitors leave it blank
 - `startedAt` — hidden timestamp set when the page loads
 
 The script uses the visitor's email as the reply-to address, so you can reply to the inquiry from Gmail.
