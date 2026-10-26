@@ -4,7 +4,7 @@
  * Keep CONTACT_RECIPIENT in Apps Script > Project Settings > Script Properties.
  * Do not place the recipient email in the website or this repository.
  */
-const SITE_URL = "https://hasan2201.github.io";
+const SITE_URL = "https://hasankhanaccounting.github.io";
 const MAX_NAME_LENGTH = 100;
 const MAX_MESSAGE_LENGTH = 5000;
 const MAX_PER_HOUR = 20;
