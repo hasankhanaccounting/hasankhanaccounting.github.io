@@ -115,11 +115,22 @@
 
     .contact { position: relative; overflow: hidden; color: #f7f7f1; background: var(--dark); }
     .contact::after { position: absolute; width: 480px; height: 480px; right: -180px; bottom: -290px; border: 1px solid rgba(155,140,245,.22); border-radius: 50%; box-shadow: 0 0 0 42px rgba(155,140,245,.045), 0 0 0 84px rgba(82,183,238,.035); content: ""; }
-    .contact-grid { position: relative; z-index: 1; display: flex; align-items: end; justify-content: space-between; gap: 50px; }
+    .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: start; gap: clamp(40px, 7vw, 100px); }
     .contact h2 { max-width: 650px; margin: 0; font: 500 clamp(3rem, 7vw, 6.4rem)/.94 var(--serif); letter-spacing: -.055em; }
-    .contact-copy { max-width: 330px; color: #c4ced2; }
-    .contact-copy p { margin: 0 0 22px; }
-    .socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-copy { max-width: none; color: #c4ced2; }
+    .contact-copy > p:first-child { margin: 0 0 22px; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: grid; gap: 7px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { color: #e8e8f0; font-size: .8rem; font-weight: 650; }
+    .form-field input, .form-field textarea { width: 100%; padding: 13px 14px; color: #f7f7fb; border: 1px solid rgba(255,255,255,.23); border-radius: 6px; background: rgba(255,255,255,.055); font: 500 .95rem var(--sans); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: #aab1bd; }
+    .form-field input:focus, .form-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 2px; border-color: transparent; }
+    .form-field textarea { min-height: 145px; resize: vertical; }
+    .form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .form-note { margin: 0; color: #aebac0; font-size: .76rem; }
+    .honeypot { position: absolute; left: -5000px; width: 1px; height: 1px; overflow: hidden; }
+    .socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
     .socials a { padding: 9px 13px; color: #eff1ec; border: 1px solid rgba(255,255,255,.25); border-radius: 99px; font-size: .82rem; text-decoration: none; }
     .socials a:hover { color: var(--dark); background: var(--accent); border-color: var(--accent); }
     .footer { padding: 23px 0; color: #aab5bb; background: #0b1319; font-size: .78rem; }
@@ -139,8 +150,8 @@
       .photo-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 190px; }
       .photo:first-child { grid-row: span 2; }
       .photo:nth-child(4) { grid-column: auto; }
-      .contact-grid { align-items: start; flex-direction: column; gap: 34px; }
-      .contact-copy { max-width: 500px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+      .contact-copy { max-width: 650px; }
     }
     @media (max-width: 620px) {
       .wrap { width: calc(100% - 32px); }
@@ -163,6 +174,8 @@
       .interest-grid { grid-template-columns: 1fr; }
       .interest-card { min-height: 180px; }
       .interest-card h3 { margin-top: 28px; }
+      .contact-form { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: auto; }
       .footer-row { align-items: flex-start; flex-direction: column; gap: 8px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -297,7 +310,29 @@
           <h2>Have something<br>in mind?</h2>
         </div>
         <div class="contact-copy">
-          <p>Find me on social or check out what I’ve been making.</p>
+          <p>Have a question or want to say hello? Send me a message.</p>
+          <form class="contact-form" action="https://script.google.com/macros/s/AKfycbxLVFep0dfVoDlXvxqG0ftiV1-Ym1xpiEWjFDdEqfoXiZqVVX-MQEgqoM0YJ1JxqjDs0A/exec" method="POST">
+            <input type="hidden" name="startedAt" id="contact-started-at">
+            <div class="honeypot" aria-hidden="true"><label>Leave this empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="form-field">
+              <label for="visitor-name">Your name</label>
+              <input id="visitor-name" type="text" name="name" autocomplete="name" placeholder="Name" maxlength="100" required>
+            </div>
+            <div class="form-field">
+              <label for="visitor-email">Your email</label>
+              <input id="visitor-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" maxlength="254" required>
+            </div>
+            <div class="form-field full">
+              <label for="visitor-message">Message</label>
+              <textarea id="visitor-message" name="message" placeholder="What would you like to talk about?" maxlength="5000" required></textarea>
+            </div>
+            <div class="form-field full">
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Send message <span aria-hidden="true">↗</span></button>
+                <p class="form-note">Your message will be delivered to Hasan by email.</p>
+              </div>
+            </div>
+          </form>
           <div class="socials">
             <a href="https://www.instagram.com/k1ng_k3an/?hl=en" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
             <a href="https://www.facebook.com/hasan.khan1101" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
@@ -308,6 +343,10 @@
     </section>
   </main>
 
+  <script>
+    const startedAtField = document.getElementById("contact-started-at");
+    if (startedAtField) startedAtField.value = String(Date.now());
+  </script>
   <footer class="footer">
     <div class="wrap footer-row">
       <span>© 2026 <a href="#home">Hasan Khan</a></span>
