@@ -1,105 +1,156 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Hasan Khan</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="assets/images/Sig.png">
-        <link rel="icon" type="image/png" href="assets/images/Sig.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a22">
+  <meta name="description" content="A thoughtful, keyboard-friendly calculator by Hasan Khan.">
+  <title>Calculator — Hasan Khan</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/hk-mark.svg">
+  <style>
+    :root{color-scheme:light;--ink:#14212b;--muted:#68747b;--paper:#f5f4ef;--white:#fffefa;--line:#dfe3df;--accent:#9b8cf5;--dark:#101a22;--dark-soft:#182630;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}@view-transition{navigation:auto}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 var(--sans)}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}
+    .site-header{position:sticky;top:0;z-index:5;color:#f7f7f1;background:rgba(16,26,34,.96);backdrop-filter:blur(14px)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:11px;font-weight:750;text-decoration:none}.brand img{width:34px;height:34px;border-radius:50%;background:white}.nav-links{display:flex;gap:25px}.nav-links a{color:#d4dbe0;font-size:.84rem;font-weight:650;text-decoration:none}.nav-links a:hover{color:var(--accent)}
+    .page{padding:64px 0 90px}.crumb{display:flex;align-items:center;gap:9px;margin:0 0 27px;color:#776eb1;font-size:.73rem;font-weight:750;letter-spacing:.13em;text-transform:uppercase}.crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
+    .app-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(380px,1.2fr);gap:clamp(36px,7vw,96px);align-items:start}.eyebrow{margin:0 0 13px;color:#655bb7;font-size:.73rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1{margin:0;font:500 clamp(3.2rem,7vw,6rem)/.94 var(--serif);letter-spacing:-.055em}.intro>p:not(.eyebrow){max-width:390px;margin:22px 0 0;color:var(--muted);font-size:1.04rem}
+    .feature-list{display:grid;gap:14px;margin:34px 0 0;padding:0;list-style:none}.feature-list li{display:flex;gap:12px;align-items:flex-start;color:#4e5a61;font-size:.88rem}.feature-list li::before{content:"";width:7px;height:7px;flex:0 0 7px;margin-top:8px;border-radius:50%;background:var(--accent)}
+    .project-switch{display:flex;flex-wrap:wrap;gap:10px;margin-top:38px}.project-switch a,.footer-nav a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:.82rem;font-weight:750}.project-switch a{padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.58)}.project-switch a:hover,.footer-nav a:hover{border-color:#b6adee;color:#5549a5}
+    .calculator{overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:var(--dark-soft);box-shadow:0 24px 70px rgba(16,26,34,.16)}.calc-top{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 0;color:#aebac0;font-size:.72rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase}.calc-indicator{display:flex;align-items:center;gap:8px}.calc-indicator::before{width:7px;height:7px;border-radius:50%;background:#d4f08e;content:""}
+    .screen{min-height:132px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;gap:4px;padding:15px 24px 20px;color:#f7f7fb;text-align:right;overflow:hidden}.expression{max-width:100%;min-height:25px;overflow:hidden;color:#aab7bf;font-size:1rem;white-space:nowrap;text-overflow:ellipsis}.answer{max-width:100%;overflow:hidden;font-size:clamp(2.3rem,6vw,3.25rem);font-weight:550;letter-spacing:-.055em;white-space:nowrap;text-overflow:ellipsis}.calc-status{min-height:20px;padding:0 24px 6px;color:#d4f08e;font-size:.75rem;text-align:right}
+    .keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:17px;background:#111d26}.key{min-height:58px;border:1px solid rgba(255,255,255,.07);border-radius:10px;color:#f6f7fa;background:#263741;font:650 1.1rem var(--sans);cursor:pointer;transition:transform .15s,background .15s}.key:hover{transform:translateY(-2px);background:#344956}.key:active{transform:scale(.97)}.key-utility{color:#d7d2ff;background:#313342}.key-operator{color:#f0edff;background:#35304f}.key-equals{color:#131a21;background:var(--accent)}.key-equals:hover{background:#b5aaff}.key-zero{grid-column:span 2}
+    .history{margin-top:20px;padding:19px 21px 20px;border-top:1px solid rgba(255,255,255,.1)}.history-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}.history h2{margin:0;color:#e6e9eb;font-size:.78rem;font-weight:700}.clear-history{padding:5px 0;border:0;color:#aab7bf;background:transparent;font:650 .72rem var(--sans);cursor:pointer}.clear-history:hover{color:var(--accent)}.history-list{display:grid;gap:5px;margin:0;padding:0;list-style:none}.history-list li{display:flex;justify-content:space-between;gap:16px;color:#aab7bf;font-size:.75rem}.history-list strong{color:#f6f7fa;font-weight:650}.history-empty{color:#83919a;font-size:.75rem}
+    .page-footer{padding:24px 0;color:#aab5bb;background:#0b1319;font-size:.76rem}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px}.footer-nav{display:flex;gap:20px}.footer-nav a{color:#dce2e3}.footer-home{color:var(--accent)!important}
+    @media(max-width:850px){.app-layout{grid-template-columns:1fr;max-width:700px;margin:auto}.intro>p:not(.eyebrow){max-width:560px}.feature-list{grid-template-columns:1fr 1fr}.page{padding-top:44px}}
+    @media(max-width:600px){.wrap{width:calc(100% - 32px)}.nav{min-height:64px}.nav-links{gap:14px}.nav-links a{font-size:.75rem}.brand{font-size:.86rem}.brand img{width:30px;height:30px}.app-layout{grid-template-columns:minmax(0,1fr);gap:30px}.feature-list{grid-template-columns:1fr}.page{padding:34px 0 58px}.key{min-height:56px}.keypad{gap:7px;padding:12px}.footer-row{align-items:flex-start;flex-direction:column}.footer-nav{flex-wrap:wrap;gap:14px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html#home"><img src="assets/images/hk-mark.svg" alt=""><span>Hasan Khan</span></a>
+      <nav class="nav-links" aria-label="Project navigation">
+        <a href="index.html#home">Home</a><a href="index.html#projects">Projects</a><a href="index.html#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    <div class="wrap">
+      <p class="crumb"><a href="index.html#projects">Selected projects</a><span aria-hidden="true">/</span><span>01 · Calculator</span></p>
+      <div class="app-layout">
+        <section class="intro" aria-labelledby="page-title">
+          <p class="eyebrow">Interactive project · 01</p>
+          <h1 id="page-title">Calculator</h1>
+          <p>A simple, precise tool for everyday arithmetic. Use the buttons or your keyboard, then revisit recent calculations below.</p>
+          <ul class="feature-list">
+            <li>Supports decimals, parentheses, and percentages.</li>
+            <li>Keyboard-friendly with clear error feedback.</li>
+            <li>Recent results stay available in this browser.</li>
+          </ul>
+          <div class="project-switch">
+            <a href="snake.html">Next project: Snake <span aria-hidden="true">→</span></a>
+            <a href="index.html#home">Back to home <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+        <section class="calculator" aria-label="Calculator app">
+          <div class="calc-top"><span>Quick calculation</span><span class="calc-indicator">Ready</span></div>
+          <div class="screen" aria-live="polite">
+            <div class="expression" id="expression">0</div>
+            <div class="answer" id="answer">0</div>
+          </div>
+          <div class="calc-status" id="calc-status" aria-live="polite">Enter a calculation</div>
+          <div class="keypad" aria-label="Calculator keys">
+            <button class="key key-utility" data-action="clear" aria-label="Clear">AC</button>
+            <button class="key key-utility" data-action="sign" aria-label="Change sign">±</button>
+            <button class="key key-utility" data-value="%" aria-label="Percent">%</button>
+            <button class="key key-operator" data-value="/" aria-label="Divide">÷</button>
+            <button class="key" data-value="7">7</button><button class="key" data-value="8">8</button><button class="key" data-value="9">9</button><button class="key key-operator" data-value="*" aria-label="Multiply">×</button>
+            <button class="key" data-value="4">4</button><button class="key" data-value="5">5</button><button class="key" data-value="6">6</button><button class="key key-operator" data-value="-" aria-label="Subtract">−</button>
+            <button class="key" data-value="1">1</button><button class="key" data-value="2">2</button><button class="key" data-value="3">3</button><button class="key key-operator" data-value="+" aria-label="Add">+</button>
+            <button class="key key-utility" data-action="backspace" aria-label="Delete last character">⌫</button><button class="key key-zero" data-value="0">0</button><button class="key" data-value=".">.</button><button class="key key-equals" data-action="equals" aria-label="Equals">=</button>
+            <button class="key key-utility" data-value="(">(</button><button class="key key-utility" data-value=")">)</button>
+          </div>
+          <section class="history" aria-labelledby="history-title">
+            <div class="history-head"><h2 id="history-title">Recent calculations</h2><button class="clear-history" id="clear-history" type="button">Clear history</button></div>
+            <ol class="history-list" id="history-list"><li class="history-empty">Your recent results will appear here.</li></ol>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer">
+    <div class="wrap footer-row"><span>© 2026 Hasan Khan</span><nav class="footer-nav" aria-label="More navigation"><a href="snake.html">Next: Snake →</a><a class="footer-home" href="index.html#home">Home ↑</a></nav></div>
+  </footer>
+  <script>
+    (function(){
+      const expressionEl=document.getElementById("expression");
+      const answerEl=document.getElementById("answer");
+      const statusEl=document.getElementById("calc-status");
+      const historyEl=document.getElementById("history-list");
+      let expression="";
+      let justEvaluated=false;
+      let history=[];
+      try{history=JSON.parse(localStorage.getItem("hk-calculator-history")||"[]");if(!Array.isArray(history))history=[];}catch(e){history=[];}
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-
-
-
-        <!--<link rel="stylesheet" href="assets/css/materialize.css">-->
-        <link rel="stylesheet" href="assets/css/normalize.css">
-        <link rel="stylesheet" href="assets/css/fonticons.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-        <!-- For navmenu css -->
-        <link rel="stylesheet" href="assets/css/navmenu.css" />
-
-        <!--For Plugins external css-->
-        <link rel="stylesheet" href="assets/css/plugins.css" />
-
-        <!--Theme custom css -->
-        <link rel="stylesheet" href="assets/css/style.css">
-
-        <!--Theme Responsive css-->
-        <link rel="stylesheet" href="assets/css/responsive.css" />
-
-        <!--Theme Colors css-->
-        <link rel="stylesheet" href="assets/css/white.css">
-
-
-
-        <!--Old browser  JS-->
-        <script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
-    </head>
-
-    <body data-spy="scroll" data-target="#scrollspy">
-
-        </script>
-        <script src="assets/js/materialize.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/main.js"></script>
-
-
-         <div class="backhome">
-                <a href="index.html">Back to homepage.</a>
-         </div>
-         <div class="backhome1">
-                <a href="snake.html">View next project.</a>
-         </div>
-         <!-- <div class="backhome2">
-                <a href="snake.html">View pervious project.</a>
-         </div> -->
-         <div class="snakegame">
-        <p>Calculator!</p>
-         </div>
-        
-         <div id='calc-contain'>
-  
-            <form name="calculator">
-              
-              <input type="text" name="answer" />
-              <br>
-              
-              <input type="button" value=" 1 " onclick="calculator.answer.value += '1'" />
-              <input type="button" value=" 2 " onclick="calculator.answer.value += '2'" />
-              <input type="button" value=" 3 " onclick="calculator.answer.value += '3'" />
-              <input type="button" value=" + " onclick="calculator.answer.value += '+'" />
-              <br/>
-              
-              <input type="button" value=" 4 " onclick="calculator.answer.value += '4'" />
-              <input type="button" value=" 5 " onclick="calculator.answer.value += '5'" />
-              <input type="button" value=" 6 " onclick="calculator.answer.value += '6'" />
-              <input type="button" value=" - " onclick="calculator.answer.value += '-'" />
-              </br>
-            
-              <input type="button" value=" 7 " onclick="calculator.answer.value += '7'" />
-              <input type="button" value=" 8 " onclick="calculator.answer.value += '8'" />
-              <input type="button" value=" 9 " onclick="calculator.answer.value += '9'" />
-              <input type="button" value=" x " onclick="calculator.answer.value += '*'" />
-              </br>
-          
-              <input type="button" value=" c " onclick="calculator.answer.value = ''" />
-              <input type="button" value=" 0 " onclick="calculator.answer.value += '0'" />
-              <input type="button" value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)" />
-              <input type="button" value=" / " onclick="calculator.answer.value += '/'" />
-              </br>
-  
-
-
-    </body>
+      function render(){
+        expressionEl.textContent=expression||"0";
+        if(!expression){answerEl.textContent="0";return;}
+        try{const value=evaluate(expression);answerEl.textContent=format(value);statusEl.textContent="Preview";statusEl.style.color="#d4f08e";}
+        catch(e){answerEl.textContent="";statusEl.textContent="Keep building your expression";statusEl.style.color="#aab7bf";}
+      }
+      function format(value){if(!Number.isFinite(value))throw new Error("Invalid result");return String(Number(value.toPrecision(12)));}
+      function tokenize(input){
+        const source=input.replace(/\s+/g,"");
+        const parts=source.match(/(?:\d+\.?\d*|\.\d+|[()+\-*/%])/g)||[];
+        if(parts.join("")!==source)throw new Error("Invalid character");
+        return parts;
+      }
+      function evaluate(input){
+        const tokens=tokenize(input);let i=0;
+        function primary(){
+          const token=tokens[i++];
+          if(token==="("){const value=addSub();if(tokens[i++]!==")")throw new Error("Missing closing parenthesis");return value;}
+          if(token===undefined||!/^((\d+\.?\d*)|(\.\d+))$/.test(token))throw new Error("Expected a number");
+          return Number(token);
+        }
+        function unary(){if(tokens[i]==="+"){i++;return unary();}if(tokens[i]==="-"){i++;return -unary();}let value=primary();while(tokens[i]==="%"){i++;value/=100;}return value;}
+        function multiply(){let value=unary();while(tokens[i]==="*"||tokens[i]==="/"){const op=tokens[i++];const rhs=unary();if(op==="/"&&rhs===0)throw new Error("Cannot divide by zero");value=op==="*"?value*rhs:value/rhs;}return value;}
+        function addSub(){let value=multiply();while(tokens[i]==="+"||tokens[i]==="-"){const op=tokens[i++];const rhs=multiply();value=op==="+"?value+rhs:value-rhs;}return value;}
+        const result=addSub();if(i!==tokens.length)throw new Error("Unexpected input");if(!Number.isFinite(result))throw new Error("Invalid result");return result;
+      }
+      function setStatus(message,color){statusEl.textContent=message;statusEl.style.color=color||"#aab7bf";}
+      function renderHistory(){
+        historyEl.innerHTML="";
+        if(!history.length){const item=document.createElement("li");item.className="history-empty";item.textContent="Your recent results will appear here.";historyEl.appendChild(item);return;}
+        history.forEach(function(entry){const item=document.createElement("li");const formula=document.createElement("span");const result=document.createElement("strong");formula.textContent=entry.expression;result.textContent=entry.result;item.append(formula,result);item.title="Click to use this result";item.tabIndex=0;item.style.cursor="pointer";item.addEventListener("click",function(){expression=entry.result;justEvaluated=true;render();setStatus("Loaded from history","#d4f08e");});item.addEventListener("keydown",function(event){if(event.key==="Enter"||event.key===" "){event.preventDefault();item.click();}});historyEl.appendChild(item);});
+      }
+      function addValue(value){
+        if(justEvaluated&&!"+-*/%".includes(value)){expression="";}
+        justEvaluated=false;
+        expression+=value;render();setStatus("Preview","#d4f08e");
+      }
+      function press(action,value){
+        if(action==="clear"){expression="";justEvaluated=false;render();setStatus("Cleared");return;}
+        if(action==="backspace"){expression=expression.slice(0,-1);justEvaluated=false;render();return;}
+        if(action==="sign"){if(expression){expression=expression.startsWith("-(")&&expression.endsWith(")")?expression.slice(2,-1):"-("+expression+")";}else expression="-";justEvaluated=false;render();return;}
+        if(action==="equals"){
+          try{const result=format(evaluate(expression));history.unshift({expression:expression,result:result});history=history.slice(0,5);try{localStorage.setItem("hk-calculator-history",JSON.stringify(history));}catch(e){}expression=result;justEvaluated=true;renderHistory();setStatus("Calculated","#d4f08e");}
+          catch(error){setStatus(error.message==="Cannot divide by zero"?"Cannot divide by zero":"Check the expression","#ffb8b8");}
+          return;
+        }
+        if(value!==undefined)addValue(value);
+      }
+      document.querySelector(".keypad").addEventListener("click",function(event){const button=event.target.closest("button");if(!button)return;press(button.dataset.action,button.dataset.value);});
+      document.addEventListener("keydown",function(event){
+        if(/^[0-9.]$/.test(event.key)){event.preventDefault();addValue(event.key);}
+        else if(["+","-","*","/","%","(",")"].includes(event.key)){event.preventDefault();addValue(event.key);}
+        else if(event.key==="Enter"||event.key==="="){event.preventDefault();press("equals");}
+        else if(event.key==="Backspace"){event.preventDefault();press("backspace");}
+        else if(event.key==="Escape"){event.preventDefault();press("clear");}
+      });
+      document.getElementById("clear-history").addEventListener("click",function(){history=[];try{localStorage.removeItem("hk-calculator-history");}catch(e){}renderHistory();});
+      render();renderHistory();
+    })();
+  </script>
+</body>
 </html>
