@@ -27,6 +27,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    @view-transition { navigation: auto; }
     body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.6; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
@@ -92,16 +93,49 @@
     .story-link:hover { text-decoration: underline; }
 
     .skills { background: #eeedf7; }
-    .skills-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: start; gap: 70px; }
-    .skills-intro .section-heading { margin-bottom: 0; }
+    .skills-layout { display: grid; grid-template-columns: .75fr 1.25fr; align-items: start; gap: 64px; }
+    .skills-intro .section-heading { margin-bottom: 24px; }
     .skills-intro .section-heading p:not(.eyebrow) { margin-top: 20px; }
-    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .skill-card { min-height: 177px; display: flex; flex-direction: column; justify-content: space-between; padding: 20px; border: 1px solid #dcd8ed; border-radius: 7px; background: rgba(255,255,255,.55); transition: transform .2s ease, background .2s ease; }
-    .skill-card:hover { transform: translateY(-4px); background: var(--white); }
-    .skill-mark { color: #6b5ec2; font: 500 2.5rem/1 var(--serif); }
-    .skill-card h3 { margin: 22px 0 0; font: 600 1rem var(--sans); }
-    .skill-card p { margin: 4px 0 0; color: var(--muted); font-size: .79rem; }
+    .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+    .skill-card { min-height: 235px; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; border: 1px solid #ddd9ec; border-radius: 13px; background: rgba(255,255,255,.7); transition: transform .22s ease, box-shadow .22s ease, background .22s ease; }
+    .skill-card:hover { transform: translateY(-5px); background: var(--white); box-shadow: 0 16px 38px rgba(31,31,69,.08); }
+    .skill-top { display: flex; align-items: center; justify-content: space-between; }
+    .skill-mark { color: #6b5ec2; font: 500 1rem/1 var(--serif); }
+    .skill-level { color: #747180; font-size: .65rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+    .skill-card h3 { margin: 28px 0 5px; font: 600 1.08rem var(--sans); }
+    .skill-card p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.55; }
+    .skill-card .skill-project { margin-top: 17px; padding-top: 13px; border-top: 1px solid #e5e2ef; color: #776eb1; font-size: .72rem; }
+    .skill-project a { text-decoration: none; font-weight: 750; }
+    .skill-project a:hover { text-decoration: underline; }
 
+    .projects { background: var(--paper); }
+    .projects-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .projects-heading .section-heading { margin-bottom: 0; }
+    .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .project-card { overflow: hidden; border: 1px solid var(--line); border-radius: 15px; background: var(--white); box-shadow: 0 12px 34px rgba(20,33,43,.045); transition: transform .25s ease, box-shadow .25s ease; }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(20,33,43,.1); }
+    .project-art { min-height: 235px; display: grid; place-items: center; padding: 28px; color: #f6f5ff; background: radial-gradient(circle at 80% 15%, rgba(155,140,245,.22), transparent 35%), #111d26; }
+    .project-art-calculator { background: radial-gradient(circle at 18% 100%, rgba(95,157,197,.25), transparent 38%), #111d26; }
+    .mini-calc { width: min(100%, 300px); padding: 15px; border: 1px solid rgba(255,255,255,.14); border-radius: 13px; background: #1a2933; box-shadow: 0 22px 50px rgba(0,0,0,.25); transform: rotate(-2deg); }
+    .mini-display { margin-bottom: 12px; text-align: right; }
+    .mini-display span { display: block; color: #a6b6bf; font-size: .68rem; }
+    .mini-display strong { display: block; margin-top: 4px; color: #fff; font-size: 1.65rem; font-weight: 550; letter-spacing: -.04em; }
+    .mini-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+    .mini-keys span { display: grid; min-height: 29px; place-items: center; border-radius: 5px; color: #dbe2e6; background: #283944; font-size: .7rem; }
+    .mini-keys span:last-child { color: #14212b; background: var(--accent); }
+    .snake-preview { width: min(100%, 280px); aspect-ratio: 1; display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; padding: 13px; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; background: #1a2933; box-shadow: 0 22px 50px rgba(0,0,0,.25); transform: rotate(2deg); }
+    .snake-preview span { border-radius: 3px; background: #283944; }
+    .snake-preview span:nth-child(22), .snake-preview span:nth-child(23), .snake-preview span:nth-child(24), .snake-preview span:nth-child(33) { background: #9b8cf5; }
+    .snake-preview span:nth-child(24) { box-shadow: 0 0 13px rgba(155,140,245,.65); }
+    .snake-preview span:nth-child(48) { border-radius: 50%; background: #d4f08e; box-shadow: 0 0 15px rgba(212,240,142,.65); }
+    .project-content { padding: 24px 25px 25px; }
+    .project-meta { display: flex; justify-content: space-between; gap: 12px; color: #756eaa; font-size: .67rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
+    .project-content h3 { margin: 13px 0 7px; font: 500 2rem/1.05 var(--serif); letter-spacing: -.035em; }
+    .project-content p { max-width: 480px; margin: 0; color: var(--muted); font-size: .9rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .project-tags span { padding: 5px 9px; border: 1px solid #e1e2e0; border-radius: 99px; color: #5e6a70; font-size: .68rem; font-weight: 650; }
+    .project-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 21px; color: #5549a5; font-size: .84rem; font-weight: 750; text-decoration: none; }
+    .project-link:hover { gap: 13px; }
     .interests { background: var(--white); }
     .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
     .interest-card { position: relative; min-height: 360px; overflow: hidden; border-radius: 8px; color: #fff; background: #26313b; isolation: isolate; }
@@ -169,9 +203,12 @@
       .hero-side { padding-left: 19px; }
       .hero-bottom { align-items: flex-start; flex-direction: column; gap: 7px; margin-top: 53px; font-size: .68rem; }
       .skill-grid { grid-template-columns: 1fr; }
+      .skill-card { min-height: 180px; }
+      .project-grid { grid-template-columns: 1fr; }
       .skill-card { min-height: 130px; }
       .skill-card h3 { margin-top: 13px; }
       .interest-grid { grid-template-columns: 1fr; }
+      .project-art { min-height: 200px; }
       .interest-card { min-height: 180px; }
       .interest-card h3 { margin-top: 28px; }
       .contact-form { grid-template-columns: 1fr; }
@@ -193,6 +230,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#story">All Star Code</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#interests">Interests</a>
         <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
@@ -202,6 +240,7 @@
         <nav class="nav-links" aria-label="Mobile navigation">
           <a href="#about">About</a>
           <a href="#story">All Star Code</a>
+          <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#interests">Interests</a>
             <a class="nav-cta" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
@@ -230,7 +269,7 @@
         </div>
         <div class="hero-bottom">
           <span>Technology · Design · Life</span>
-          <a href="space.html">A few things I’ve made <span aria-hidden="true">↗</span></a>
+          <a href="#projects">Explore my projects <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -265,16 +304,70 @@
       <div class="wrap skills-layout">
         <div class="skills-intro">
           <div class="section-heading">
-            <p class="eyebrow">What I work with</p>
-            <h2>My skills</h2>
-            <p>Web development skills I’ve been building and putting to use.</p>
+            <p class="eyebrow">How I build</p>
+            <h2>Skills with a purpose.</h2>
+            <p>I bring structure, visual design, and interaction together to make ideas useful and easy to explore.</p>
           </div>
-          <a class="button button-dark" href="space.html">See my projects <span aria-hidden="true">↗</span></a>
+          <a class="button button-dark" href="#projects">See the work in action <span aria-hidden="true">↘</span></a>
         </div>
         <div class="skill-grid">
-          <article class="skill-card"><span class="skill-mark" aria-hidden="true">&lt;/&gt;</span><div><h3>HTML</h3><p>Structure and content</p></div></article>
-          <article class="skill-card"><span class="skill-mark" aria-hidden="true">#</span><div><h3>CSS</h3><p>Style and layout</p></div></article>
-          <article class="skill-card"><span class="skill-mark" aria-hidden="true">JS</span><div><h3>JavaScript</h3><p>Interaction and logic</p></div></article>
+          <article class="skill-card">
+            <div class="skill-top"><span class="skill-mark" aria-hidden="true">01</span><span class="skill-level">Structure</span></div>
+            <div><h3>HTML</h3><p>Clear page structure, forms, and accessible interface elements.</p><p class="skill-project">Used in <a href="space.html">Calculator</a> and <a href="snake.html">Snake</a></p></div>
+          </article>
+          <article class="skill-card">
+            <div class="skill-top"><span class="skill-mark" aria-hidden="true">02</span><span class="skill-level">Visual design</span></div>
+            <div><h3>CSS</h3><p>Responsive layouts, thoughtful spacing, and a consistent visual system.</p><p class="skill-project">Used across every project on this site</p></div>
+          </article>
+          <article class="skill-card">
+            <div class="skill-top"><span class="skill-mark" aria-hidden="true">03</span><span class="skill-level">Interaction</span></div>
+            <div><h3>JavaScript</h3><p>Keyboard controls, game logic, and practical interface behavior.</p><p class="skill-project">Try the <a href="space.html">Calculator</a> or <a href="snake.html">Snake</a></p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="wrap">
+        <div class="projects-heading">
+          <div class="section-heading">
+            <p class="eyebrow">Selected work · Interactive</p>
+            <h2>Small ideas, built to work.</h2>
+            <p>Try the projects directly. Each one is designed to feel clear, quick, and good to use.</p>
+          </div>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <a href="space.html" aria-label="Open the calculator project" style="text-decoration:none">
+              <div class="project-art project-art-calculator" aria-hidden="true">
+                <div class="mini-calc">
+                  <div class="mini-display"><span>18 × 24</span><strong>432</strong></div>
+                  <div class="mini-keys"><span>AC</span><span>±</span><span>%</span><span>÷</span><span>7</span><span>8</span><span>9</span><span>×</span><span>4</span><span>5</span><span>6</span><span>−</span><span>1</span><span>2</span><span>3</span><span>+</span></div>
+                </div>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-meta"><span>01 / Everyday tool</span><span>Open project ↗</span></div>
+              <h3>Calculator</h3>
+              <p>A clean calculator for quick arithmetic, keyboard input, and keeping track of recent results.</p>
+              <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <a class="project-link" href="space.html">Open calculator <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <a href="snake.html" aria-label="Open the Snake game project" style="text-decoration:none">
+              <div class="project-art" aria-hidden="true">
+                <div class="snake-preview"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-meta"><span>02 / Classic arcade</span><span>Open project ↗</span></div>
+              <h3>Snake</h3>
+              <p>A responsive arcade classic with touch controls, adjustable speed, pause, and a saved high score.</p>
+              <div class="project-tags"><span>Canvas</span><span>JavaScript</span><span>Keyboard + touch</span></div>
+              <a class="project-link" href="snake.html">Play Snake <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
