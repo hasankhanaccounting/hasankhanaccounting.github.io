@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 88" role="img" aria-labelledby="title">
-  <title id="title">Hasan Khan monogram</title>
-  <defs>
-    <linearGradient id="signature" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7663ef"/>
-      <stop offset=".52" stop-color="#9b78ff"/>
-      <stop offset="1" stop-color="#52b7ee"/>
-    </linearGradient>
-  </defs>
-  <text x="2" y="69" fill="url(#signature)" font-family="Georgia, 'Times New Roman', serif" font-size="68" font-style="italic" font-weight="600" letter-spacing="-9">H</text>
-  <text x="45" y="68" fill="url(#signature)" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-style="italic" font-weight="600" letter-spacing="-6">K</text>
-  <path d="M18 80c27 6 54 2 82-16" fill="none" stroke="url(#signature)" stroke-linecap="round" stroke-width="3.5"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title"><title id="title">Hasan Khan — interwoven HK monogram</title><rect x="2" y="2" width="96" height="96" rx="26" fill="#101a22"/><path d="M25 25v48m25-48v48M25 49h25m0 0 25-24M50 49l27 24" fill="none" stroke="#d4bd87" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/><path d="M20 82h59" stroke="#d4bd87" stroke-width="2" opacity=".55"/><path d="M77 19h5v5" fill="none" stroke="#f5f4ef" stroke-width="2.5"/></svg>
